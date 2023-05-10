@@ -1,8 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Module,} from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './clothes/product.modules';
-import { ProductController } from './clothes/product.controller';
-import { ProductService } from './clothes/product.services';
+
 
 @Module({
   imports:[
@@ -16,11 +15,14 @@ import { ProductService } from './clothes/product.services';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    ProductModule,
+    ProductModule
   ],
 
   controllers: [],
   providers: [],
 })
 
-export class AppModule {}
+ export class AppModule {}
+
+
+

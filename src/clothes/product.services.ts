@@ -1,10 +1,19 @@
 import { Injectable } from "@nestjs/common/decorators";
 import { InjectRepository } from "@nestjs/typeorm";
-import { FindOneOptions, Repository } from "typeorm";
+import { Repository } from "typeorm";
 import { Product } from "./product.entities";
+import { Logger } from "@nestjs/common";
 
 @Injectable()
 export class ProductService{
+    private readonly logger = new Logger(ProductService.name);
+    requestService: any;
+
+    getProduct(): string{
+        const productId = this.requestService.getProductId();
+        this.logger.log('getProduct productId:', productId);
+        return 'Product!';
+    }
     getProductsById(id: number): Product | PromiseLike<Product> {
         throw new Error("Method not implemented.");
     }
@@ -52,7 +61,7 @@ export class ProductService{
         await this.productRepository.delete(id);
     
        }
-
+}
     //     const productToUpdate = await this.productRepository.findOne(options);
 
     //     //check errors
@@ -75,4 +84,4 @@ export class ProductService{
     //     await this.productRepository.delete(id);
     // }
 
-}
+
