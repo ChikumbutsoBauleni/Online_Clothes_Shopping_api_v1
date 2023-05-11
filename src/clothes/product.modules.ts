@@ -3,6 +3,8 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ProductController } from "./product.controller";
 import { ProductService } from "./product.services";
 import { Product } from "./product.entities";
+import { MiddlewareConsumer, NestModule, RequestMethod } from "@nestjs/common";
+import { AuthenticationMiddleware } from "./middlewares/authentication.middleware";
 
 
 @Module({
@@ -10,5 +12,9 @@ import { Product } from "./product.entities";
     controllers: [ProductController],
     providers: [ProductService],
 })
-export class ProductModule{}
+export class ProductModule implements NestModule{
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(AuthenticationMiddleware).forRoutes('*');
+    }
+}
  
