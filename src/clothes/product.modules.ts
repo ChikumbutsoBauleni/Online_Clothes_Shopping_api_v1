@@ -15,7 +15,7 @@ import { AuthenticationMiddleware } from "./middlewares/authentication.middlewar
 export class ProductModule implements NestModule{
     configure(consumer: MiddlewareConsumer) {
 
-        //let middleware play globally
+        //let middleware play globally using all endpoints
         consumer.apply(AuthenticationMiddleware).forRoutes('*');
     }
 }

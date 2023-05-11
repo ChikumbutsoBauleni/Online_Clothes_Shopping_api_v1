@@ -42,9 +42,6 @@ export class ProductService{
         return this.productRepository.findOne({where:{id}})
         }
 
-    //     const product = await this.productRepository.findOne(options);
-    //     return await product;
-    // }
     async updateProduct(id: number, productD: Product): Promise<Product>{
         const product = await this.getProductById(id);
         this.productRepository.merge(product, productD);
@@ -62,26 +59,5 @@ export class ProductService{
     
        }
 }
-    //     const productToUpdate = await this.productRepository.findOne(options);
-
-    //     //check errors
-    //     if(!productToUpdate){
-    //         throw new Error('product with id ${id} is not available');
-        
-    //     }
-
-    //     //updating the changes
-
-    //     productToUpdate.productType = updateProduct.productType;
-    //     productToUpdate.price = updateProduct.price;
-    //     productToUpdate.description = updateProduct.description;
-    //     const saveProduct = await this.productRepository.save(productToUpdate);
-
-    //     return await saveProduct;
-    // }
-
-    // async delete(id: number): Promise<void>{
-    //     await this.productRepository.delete(id);
-    // }
-
+   
 
