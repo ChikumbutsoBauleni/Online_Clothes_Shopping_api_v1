@@ -12,11 +12,11 @@ export class ProductController{
     } 
 
     @Get()
-    async getProductById(productD: Product): Promise<Product[]>{
+    async getProduct(productD: Product): Promise<Product[]>{
         return this.productService.findProductById(productD);
    }
     @Get(':id')
-    async getPeroductById(@Param('id') id: number): Promise<Product>{
+    async getProductById(@Param('id') id: number): Promise<Product>{
         return this.productService.getProductById(id);
     }
   

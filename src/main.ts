@@ -8,13 +8,13 @@ async function bootstrap() {
 
     const config = new DocumentBuilder()
       .setTitle('Online Clothes Sholping api')
-      .setDescription('The online shopping apai')
+      .setDescription('The online shopping platform')
       .setVersion('1.0')
-      .addTag('users')
+      .addTag('Products')
       .build();
 
     const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('api', app,document);``
+    SwaggerModule.setup('api', app,document);
 
 
   
