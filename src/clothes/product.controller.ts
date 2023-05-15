@@ -1,7 +1,9 @@
 import { Controller,Get, Post, Body, Patch, Param, Delete, Put } from "@nestjs/common";
 import { Product } from "./product.entities";
 import { ProductService } from "./product.services";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('PRODUCTS')
 @Controller('products')
 export class ProductController{
     constructor(private readonly productService:ProductService){}
@@ -12,8 +14,8 @@ export class ProductController{
     } 
 
     @Get()
-    async getProduct(productD: Product): Promise<Product[]>{
-        return this.productService.findProductById(productD);
+    async getProducts(): Promise<Product[]>{
+        return this.productService.findAll();
    }
     @Get(':id')
     async getProductById(@Param('id') id: number): Promise<Product>{

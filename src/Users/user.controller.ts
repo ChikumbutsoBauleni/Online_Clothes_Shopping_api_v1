@@ -1,8 +1,11 @@
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entities';
+import { ApiTags } from '@nestjs/swagger';
 
 
+
+@ApiTags('USERS')
 @Controller('Users')
 export class UserController{
 
@@ -14,8 +17,8 @@ export class UserController{
     } 
 
     @Get()
-    async getUser(userD: User): Promise<User[]>{
-        return this.userService.findUserById(userD);
+    async getProducts(): Promise<User[]>{
+        return this.userService.findAll();
    }
     @Get(':id')
     async getUserById(@Param('id') id: number): Promise<User>{
