@@ -12,7 +12,7 @@ import { UsersModule } from './Users/user.modules';
       username: 'root',
       password: '',
       database: 'online_clothes_shopping_api_v1',
-      autoLoadEntities: true,
+      entities: [__dirname+ '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     ProductModule,
