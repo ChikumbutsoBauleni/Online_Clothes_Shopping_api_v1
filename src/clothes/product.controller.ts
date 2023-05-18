@@ -3,7 +3,7 @@ import { Product } from "./product.entities";
 import { ProductService } from "./product.services";
 import { ApiTags } from "@nestjs/swagger";
 
-@ApiTags('PRODUCTS')
+@ApiTags('ADMIN/ products control')
 @Controller('products')
 export class ProductController{
     constructor(private readonly productService:ProductService){}

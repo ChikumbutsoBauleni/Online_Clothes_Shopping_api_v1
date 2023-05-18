@@ -5,13 +5,13 @@ import { ApiTags } from '@nestjs/swagger';
 
 
 
-@ApiTags('USERS')
+@ApiTags('USERS/ SignUp')
 @Controller('Users')
 export class UserController{
 
     constructor(private readonly userService:UserService){}
 
-    @Post()
+    @Post("SignUp")
     async createUser(@Body() user:User): Promise<User>{
         return this.userService.createUser(user);
     } 

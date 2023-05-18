@@ -5,12 +5,12 @@ import { jwtAuthGuard } from "./jwt_auth.guards";
 import { ApiTags } from "@nestjs/swagger";
 
 
-@ApiTags('AUTHENTICATION')
-@Controller('Signin')
+@ApiTags('USER/ SignIn')
+@Controller('User')
 export class AuthControler{
     constructor(private readonly authService:AuthService){}
 
-    @Post()
+    @Post("SignIn")
     async login(@Body() authLoginDto: AuthLoginDto){
         return this.authService.login(authLoginDto);
     }

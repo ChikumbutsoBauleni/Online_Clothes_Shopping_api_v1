@@ -1,7 +1,7 @@
 import { BaseEntity, BeforeInsert, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import *as bcrypt from "bcrypt";
 
-@Entity('User')
+@Entity()
 
 export class User extends BaseEntity{
     @PrimaryGeneratedColumn()
