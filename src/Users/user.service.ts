@@ -3,9 +3,12 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { User } from "./user.entities";
 import { Logger } from "@nestjs/common";
-
+import *as bcrypt from 'bcrypt';
+ 
 @Injectable()
 export class UserService{
+    
+    
     private readonly logger = new Logger(UserService.name);
     requestService: any;
 
@@ -20,10 +23,16 @@ export class UserService{
     findUserById(userD: User): User[] | PromiseLike<User[]> {
         throw new Error("Method not implemented.");
     }
+    async findByEmail(email:string){
+        return await User.findOne({
+            where: {
+                email: email
+            }
+        })
+    }
     create(UserD: User): User[] | PromiseLike<User[]> {
         throw new Error("Method not implemented.");
-    }
-    
+    } 
     constructor(
         @InjectRepository(User)
         private userRepository:Repository<User>,
@@ -32,6 +41,10 @@ export class UserService{
     async createUser(UserD:User): Promise<User>{
         const user = this.userRepository.create(UserD);
         return this.userRepository.save(user);
+
+        //MAKE THE PASSWORD HAASH
+        const salt = await bcrypt.genSalt();
+        const password = await bcrypt.hash(user.password,salt)
     }
 
      async findAll(): Promise<User[]>{

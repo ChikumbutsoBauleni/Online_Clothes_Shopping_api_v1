@@ -7,7 +7,7 @@ async function bootstrap() {
 
 
     const config = new DocumentBuilder()
-      .setTitle('Online Clothes Shopping api')
+      .setTitle('ONLINE CLOTHES SHOPPING API')
       .setDescription('The online shopping platform')
       .setVersion('1.0')
       .build();
