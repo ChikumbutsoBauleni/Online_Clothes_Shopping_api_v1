@@ -9,10 +9,10 @@ import { AuthModule } from './auth/auth.module';
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '127.0.0.1',
+      host: 'sql8.freesqldatabase.com',
       port:  3306,
-      username: 'root',
-      password: '',
+      username: 'sql8624376',
+      password: 'F9N8Bc5NX3',
       database: 'online_clothes_shopping_api_v1',
       synchronize: true,
       autoLoadEntities: true,

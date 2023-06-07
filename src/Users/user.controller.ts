@@ -1,7 +1,10 @@
-import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entities';
 import { ApiTags } from '@nestjs/swagger';
+import { AuthenticationGuard } from 'src/utility/guards/authentication.guards';
+import { AuthorizeRoles } from 'src/utility/decorators/authorize-roles.decorators';
+import { AuthorizeGuards } from 'src/utility/guards/authorization.guards';
 
 
 
@@ -16,10 +19,14 @@ export class UserController{
         return this.userService.createUser(user);
     } 
 
-    @Get()
-    async getProducts(): Promise<User[]>{
-        return this.userService.findAll();
+    @AuthorizeRoles('Roles.ADMIN')
+    @UseGuards(AuthenticationGuard,AuthorizeGuards)
+    @Get('all')
+    async findAll(): Promise<User[]>{
+        return await this.userService.findAll();
    }
+
+   @UseGuards(AuthenticationGuard)
     @Get(':id')
     async getUserById(@Param('id') id: number): Promise<User>{
         return this.userService.getUserById(id);
@@ -42,3 +49,4 @@ export class UserController{
 
 
 }
+
