@@ -1,5 +1,4 @@
 import { IsEmail, IsNotEmpty, Length, Matches } from "class-validator"
-import { MESSAGE, REGEX } from "src/app.utils";
 
 export class UserRegisterRequestDto{
     @IsNotEmpty()
@@ -13,7 +12,4 @@ export class UserRegisterRequestDto{
     @Length(8,20)
     password:string;
 
-    @IsNotEmpty()
-    @Length(8,20)
-    confirm:string;
 }

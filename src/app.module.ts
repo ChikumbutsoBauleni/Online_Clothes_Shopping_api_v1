@@ -3,16 +3,19 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './clothes/product.modules';
 import { UsersModule } from './Users/user.modules';
 import { AuthModule } from './auth/auth.module';
+import { MiddlewareConsumer } from '@nestjs/common';
+import { CurrentUserMiddleware } from './utility/middleware/current-user.middleware';
+import { RequestMethod } from '@nestjs/common';
 
 
 @Module({
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'sql8.freesqldatabase.com',
+      host: '127.0.0.1',
       port:  3306,
-      username: 'sql8624376',
-      password: 'F9N8Bc5NX3',
+      username: 'root',
+      password: '',
       database: 'online_clothes_shopping_api_v1',
       synchronize: true,
       autoLoadEntities: true,
@@ -27,7 +30,13 @@ import { AuthModule } from './auth/auth.module';
   providers: [],
 })
 
- export class AppModule {}
+ export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(CurrentUserMiddleware)
+      .forRoutes({ path: '*', method: RequestMethod.ALL   });
+  }
+ }
 
 
 

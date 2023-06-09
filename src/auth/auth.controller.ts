@@ -13,11 +13,12 @@ export class AuthControler{
     @Post("SignIn")
     async login(@Body() authLoginDto: AuthLoginDto){
         return this.authService.login(authLoginDto);
+        
     }
 
     @UseGuards(jwtAuthGuard)
     @Get()
     async test(){
-        return "Login successfully";
+        return  this.authService.findAll("Login successfully");
     }
 }

@@ -4,6 +4,12 @@ import {JwtService} from '@nestjs/jwt'
 import { AuthLoginDto } from "./auth-login.dto";
 @Injectable()
 export class AuthService{
+    findAll(arg0: string) {
+        throw new Error("Method not implemented.");
+    }
+    findall(arg0: string) {
+        throw new Error("Method not implemented.");
+    }
 
     constructor(  
         private userService:UserService,

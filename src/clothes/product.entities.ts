@@ -13,4 +13,6 @@ export class Product{
 
     @Column()
     description: string;
+    ordering: any;
+    available: any;
 } 

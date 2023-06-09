@@ -7,6 +7,9 @@ import *as bcrypt from 'bcrypt';
  
 @Injectable()
 export class UserService{
+    findOne(arg0: number) {
+        throw new Error('Method not implemented.');
+    }
     
     
     private readonly logger = new Logger(UserService.name);

@@ -6,6 +6,9 @@ import { Logger } from "@nestjs/common";
 
 @Injectable()
 export class ProductService{
+    findUserById(userId: number) {
+        throw new Error('Method not implemented.');
+    }
     private readonly logger = new Logger(ProductService.name);
     requestService: any;
 
