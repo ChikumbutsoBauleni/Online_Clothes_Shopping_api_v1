@@ -2,11 +2,6 @@ import { Controller, Get, Post, Body, Param, Delete, Put, UseGuards } from '@nes
 import { UserService } from './user.service';
 import { User } from './user.entities';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthenticationGuard } from 'src/utility/guards/authentication.guards';
-import { AuthorizeRoles } from 'src/utility/decorators/authorize-roles.decorators';
-import { AuthorizeGuards } from 'src/utility/guards/authorization.guards';
-
-
 
 @ApiTags('USERS/ SignUp')
 @Controller('Users')
@@ -18,15 +13,10 @@ export class UserController{
     async createUser(@Body() user:User): Promise<User>{
         return this.userService.createUser(user);
     } 
-
-    @AuthorizeRoles('Roles.ADMIN')
-    @UseGuards(AuthenticationGuard,AuthorizeGuards)
     @Get()
     async findAll(): Promise<User[]>{
         return await this.userService.findAll();
    }
-
-   @UseGuards(AuthenticationGuard)
     @Get(':id')
     async getUserById(@Param('id') id: number): Promise<User>{
         return this.userService.getUserById(id);
