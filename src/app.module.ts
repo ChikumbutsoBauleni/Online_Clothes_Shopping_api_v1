@@ -12,7 +12,7 @@ import { AuthModule } from './auth/auth.module';
       type: 'mysql',
       host: 'sql10.freesqldatabase.com',
       port:  3306,
-      username: 'root',
+      //username: 'root',
       password: 'B3nQ1Z9SKS',
       database: 'sql10624953',
       synchronize: false,
