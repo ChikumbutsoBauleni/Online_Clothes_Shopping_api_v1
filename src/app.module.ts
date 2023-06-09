@@ -12,10 +12,10 @@ import { RequestMethod } from '@nestjs/common';
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '127.0.0.1',
+      host: 'sql10.freesqldatabase.com',
       port:  3306,
-      username: 'root',
-      password: '',
+      username: 'sql10624877',
+      password: 'lW6ixvjJGZ',
       database: 'online_clothes_shopping_api_v1',
       synchronize: true,
       autoLoadEntities: true,
