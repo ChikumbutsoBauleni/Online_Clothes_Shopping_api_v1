@@ -16,8 +16,8 @@ import { RequestMethod } from '@nestjs/common';
       port:  3306,
       username: 'sql10624877',
       password: 'lW6ixvjJGZ',
-      database: 'online_clothes_shopping_api_v1',
-      synchronize: true,
+      database: 'sql10624877',
+      synchronize: false,
       autoLoadEntities: true,
       
     }),
