@@ -24,7 +24,8 @@ import { LoggingInterceptor } from './interceptors/logging.interceptors';
       username: 'root',
       password: '',
       database: 'online_clothes_shopping_api_v1',
-      synchronize: true,
+      synchronize: false,
+      logging:false,
       autoLoadEntities: true,
       
       
