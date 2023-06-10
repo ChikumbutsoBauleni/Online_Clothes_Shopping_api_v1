@@ -4,7 +4,7 @@ import { ProductController } from "./product.controller";
 import { ProductService } from "./product.services";
 import { Product } from "./product.entities";
 import { MiddlewareConsumer, NestModule, RequestMethod } from "@nestjs/common";
-import { AuthenticationMiddleware } from "./middleware/authentication.middleware";
+
 
 
 @Module({
@@ -12,11 +12,5 @@ import { AuthenticationMiddleware } from "./middleware/authentication.middleware
     controllers: [ProductController],
     providers: [ProductService],
 })
-export class ProductModule implements NestModule{
-    configure(consumer: MiddlewareConsumer) {
-
-        //let middleware play globally using all endpoints
-        consumer.apply(AuthenticationMiddleware).forRoutes('*');
-    }
-}
+export class ProductModule {}
  

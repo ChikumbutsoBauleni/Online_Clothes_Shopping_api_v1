@@ -7,7 +7,7 @@ import { ApiTags } from "@nestjs/swagger";
 @Controller('products')
 export class ProductController{
     constructor(private readonly productService:ProductService){}
-
+    
     @Post()
     async createProduct(@Body() product: Product): Promise<Product>{
         return this.productService.createProduct(product);

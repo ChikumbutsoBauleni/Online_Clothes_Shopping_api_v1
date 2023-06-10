@@ -21,11 +21,13 @@ export class AuthService{
             const user = await this.validateUser(authLoginDto);
             const payload = {
                 userId: user.id
+                
             };
 
             return{
                 access_token:this.jwtService.sign(payload)
             };
+            return{message:'signin is sucessful'};
         }
         async validateUser(authLoginDto:AuthLoginDto){
             const{ email,password} = authLoginDto;
@@ -35,7 +37,11 @@ export class AuthService{
                     throw new UnauthorizedException();
                 }
                 return user;
-            
+        }
+        async signup(){
+            return'';
+        }async signout(){
+            return'';
         }
    
 }
