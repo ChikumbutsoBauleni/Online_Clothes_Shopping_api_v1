@@ -17,6 +17,6 @@ async function bootstrap() {
 
 
   
-  await app.listen(3335);
+  await app.listen(3000);
 }
 bootstrap();

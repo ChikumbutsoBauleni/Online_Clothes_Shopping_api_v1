@@ -1,21 +1,22 @@
-import { Module,} from '@nestjs/common';
+import { Global, Module,} from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './clothes/product.modules';
 import { UsersModule } from './Users/user.modules';
 import { AuthModule } from './auth/auth.module';
 
 
-
+@Global()
 @Module({
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'sql10.freesqldatabase.com',
       port:  3306,
-      //username: 'root',
-      password: 'B3nQ1Z9SKS',
-      database: 'sql10624953',
+      username: 'root',
+      password: '',
+      database: 'online_clothes_shopping_api_v1',
       synchronize: false,
+      logging:false,
       autoLoadEntities: true,
       
     }),
@@ -28,9 +29,7 @@ import { AuthModule } from './auth/auth.module';
   providers: [],
 })
 
- export class AppModule {
-  
- }
+ export class AppModule {}
 
 
 
