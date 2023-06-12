@@ -15,11 +15,11 @@ import { CategoryModule } from './category/category.module';
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host:'localhost',
+      host:'sql10.freesqldatabase.com',
       port: 3306,
-      username: 'root',
-      password:'',
-      database:'online_shopping',
+      username: 'sql10625656',
+      password:'EP4hKwGb4n',
+      database:'sql10625656',
       synchronize:true,
       logging:false,
       autoLoadEntities: true,
