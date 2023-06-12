@@ -3,12 +3,10 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AuthGuard } from './guards/auth.guards';
 
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalGuards(new AuthGuard);
      
-
 
     const config = new DocumentBuilder()
       .setTitle('ONLINE CLOTHES SHOPPING API')
@@ -20,8 +18,6 @@ async function bootstrap() {
     SwaggerModule.setup('api', app,document);
     
 
-
-  
   await app.listen(3333);
 }
 bootstrap();

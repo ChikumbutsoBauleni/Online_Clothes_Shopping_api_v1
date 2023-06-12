@@ -8,32 +8,28 @@ import { AuthGuard } from './guards/auth.guards';
 import { RequestService } from './request.service';
 import { AuthenticationMiddleware } from './middleware/authentication.middleware';
 import { LoggingInterceptor } from './interceptors/logging.interceptors';
-
-
-  
-
-
+import { CategoryModule } from './category/category.module';
 
 
 @Module({
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '127.0.0.1',
-      port:  3306,
+      host:'localhost',
+      port: 3306,
       username: 'root',
-      password: '',
-      database: 'online_clothes_shopping_api_v1',
-      synchronize: false,
+      password:'',
+      database:'online_shopping',
+      synchronize:true,
       logging:false,
       autoLoadEntities: true,
-      
-      
+
     }),
    
     ProductModule,
     UsersModule,
-    AuthModule
+    AuthModule,
+    CategoryModule
   ],
 
   controllers: [],
