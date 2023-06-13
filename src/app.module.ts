@@ -9,23 +9,31 @@ import { RequestService } from './request.service';
 import { AuthenticationMiddleware } from './middleware/authentication.middleware';
 import { LoggingInterceptor } from './interceptors/logging.interceptors';
 import { CategoryModule } from './category/category.module';
+import { User } from './Users/user.entities';
+import { Category } from './category/category.entities';
+import { Product } from './clothes/product.entities';
+import { ConfigurationModule } from 'config/config.module';
+import { DatabaseModule } from 'config/database.module';
 
 
 @Module({
   imports:[
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host:'sql10.freesqldatabase.com',
-      port: 3306,
-      username: 'sql10625656',
-      password:'EP4hKwGb4n',
-      database:'sql10625656',
-      synchronize:true,
-      logging:false,
-      autoLoadEntities: true,
+    // TypeOrmModule.forRoot({
+    //   type: 'mysql',
+    //   host:'localhost',
+    //   port: 3306,
+    //   username: 'root',
+    //   password:'',
+    //   database:'clothes',
+    //   synchronize:true,
+    //   logging:false,
+    //   autoLoadEntities: true,
 
-    }),
+    // }),
    
+    ConfigurationModule,
+   DatabaseModule,
+
     ProductModule,
     UsersModule,
     AuthModule,
@@ -34,6 +42,10 @@ import { CategoryModule } from './category/category.module';
 
   controllers: [],
   providers: [
+    User,
+    Category,
+    Product,
+
     RequestService,
     {
       provide:APP_INTERCEPTOR,

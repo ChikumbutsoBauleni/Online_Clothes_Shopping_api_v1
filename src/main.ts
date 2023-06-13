@@ -2,9 +2,13 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AuthGuard } from './guards/auth.guards';
+import { ConfigService } from '@nestjs/config';
+import * as dotenv from 'dotenv';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  dotenv.config()
+  const app = await NestFactory.create(AppModule, {abortOnError: false});
+  const configService = app.get(ConfigService);
   app.useGlobalGuards(new AuthGuard);
      
 
@@ -18,6 +22,6 @@ async function bootstrap() {
     SwaggerModule.setup('api', app,document);
     
 
-  await app.listen(3333);
+  await app.listen(8080);
 }
 bootstrap();
