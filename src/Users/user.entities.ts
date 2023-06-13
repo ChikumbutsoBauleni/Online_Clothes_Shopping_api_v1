@@ -18,11 +18,11 @@ export class User extends BaseEntity{
     @Column()
     password:string;
 
-    @CreateDateColumn()
-    createdAt:Date
+    //@CreateDateColumn()
+    //createdAt:Date
 
-    @UpdateDateColumn()
-    updatedAt:Date
+    //@UpdateDateColumn()
+    //updatedAt:Date
 
     @BeforeInsert()
     async hashPassword(){

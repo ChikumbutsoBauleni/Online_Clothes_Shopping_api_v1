@@ -8,7 +8,7 @@ export class DatabaseConfigService {
     ){}
     getHost(): string {
         const host = this.configService.get<string>('DB_HOST');
-        return host || 'https://sql10.freesqldatabase.com';
+        return host || 'sql10.freesqldatabase.com';
     }
 
     getPort(): number {
