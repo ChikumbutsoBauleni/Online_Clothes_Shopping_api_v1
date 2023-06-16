@@ -8,7 +8,7 @@ export class DatabaseConfigService {
     ){}
     getHost(): string {
         const host = this.configService.get<string>('DB_HOST');
-        return host || 'sql10.freesqldatabase.com';
+        return host || 'db4free.net';
     }
 
     getPort(): number {
@@ -18,17 +18,17 @@ export class DatabaseConfigService {
 
     getUserName(): string {
         const userName = this.configService.get<string>('DB_USERNAME');
-        return userName || 'sql10625656';
+        return userName || 'chiku2020';
     }
 
     getPassword(): string {
         const password = this.configService.get<string>('DB_PASSWORD');
-        return password || 'EP4hKwGb4n';
+        return password || 'Mr@Chiku2023';
     }
 
     getDatabaseName(): string {
         const databaseName = this.configService.get<string>('DB_NAME');
-        return databaseName || 'sql10625656';
+        return databaseName || 'online_shopping';
     }
 }
 
